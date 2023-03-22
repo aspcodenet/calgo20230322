@@ -49,8 +49,10 @@ int genYear(){
 CAR *findCar(CAR_DATA *carData, const char *regno ){
     CAR *result = NULL;
     for(int i = 0; i < carData->antal; i++){
-        if(strcmp(carData->cars[i].regno, regno) == 0)
+        if(strcmp(carData->cars[i].regno, regno) == 0){
             result = &carData->cars[i];
+            return result;
+        }
     }
     return result;
 }
@@ -68,10 +70,33 @@ int main(){
         allCars.cars[i].year = genYear();
     }
     char *the1000 = allCars.cars[1000].regno;
+
+    clock_t start, end;
+    double cpu_time_used;
+    start = clock();
     CAR *car = findCar(&allCars, the1000);
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
+    printf("took %f seconds to execute \n", cpu_time_used);
+
     if(car != NULL){
         printf("Hittade bilden från %d\n", car->year);
     }
+
+
+    char *sista = allCars.cars[allCars.antal-1].regno;
+
+    start = clock();
+    car = findCar(&allCars, sista);
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
+    printf("took %f seconds to execute \n", cpu_time_used);
+
+    if(car != NULL){
+        printf("Hittade bilden från %d\n", car->year);
+    }
+
+
 
 //    qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);
 

@@ -62,25 +62,25 @@ int main(){
 
 //    qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);
 
-    clock_t start, end;
-    double cpu_time_used;
-    start = clock();
-    CAR *f = Find2(&allCars,allCars.cars[1000].regno);
-    end = clock();
-    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
-    printf("took %f seconds to execute \n", cpu_time_used);
-    if(f){
-        printf("Found");
-    }
+    // clock_t start, end;
+    // double cpu_time_used;
+    // start = clock();
+    // CAR *f = Find2(&allCars,allCars.cars[1000].regno);
+    // end = clock();
+    // cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
+    // printf("took %f seconds to execute \n", cpu_time_used);
+    // if(f){
+    //     printf("Found");
+    // }
     
-    start = clock();
-    f = Find2(&allCars,allCars.cars[allCars.antal-1].regno);
-    end = clock();
-    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
-    printf("took %f seconds to execute \n", cpu_time_used);
-    if(f){
-        printf("Found");
-    }
+    // start = clock();
+    // f = Find2(&allCars,allCars.cars[allCars.antal-1].regno);
+    // end = clock();
+    // cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;    
+    // printf("took %f seconds to execute \n", cpu_time_used);
+    // if(f){
+    //     printf("Found");
+    // }
 
 
     

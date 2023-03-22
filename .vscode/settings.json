@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\stefa\\source\\calgo20230322",
+            "binaryPath": "c:\\Users\\stefa\\source\\calgo20230322\\main.exe",
+            "binaryArgs": []
+        }
+    ]
+}

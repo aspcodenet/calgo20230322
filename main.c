@@ -46,7 +46,14 @@ int genYear(){
   return strcmp(e1->regno, e2->regno);
 }
 
-
+CAR *findCar(CAR_DATA *carData, const char *regno ){
+    CAR *result = NULL;
+    for(int i = 0; i < carData->antal; i++){
+        if(strcmp(carData->cars[i].regno, regno) == 0)
+            result = &carData->cars[i];
+    }
+    return result;
+}
 int main(){
     srand(time(NULL));
 
@@ -58,6 +65,11 @@ int main(){
         genRegNo(regno);
         strcpy(allCars.cars[i].regno,regno);
         allCars.cars[i].year = genYear();
+    }
+    char *the1000 = allCars.cars[1000].regno;
+    CAR *car = findCar(&allCars, the1000);
+    if(car != NULL){
+        printf("Hittade bilden från %d\n", car->year);
     }
 
 //    qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);

@@ -60,10 +60,11 @@ int main(){
     CAR_DATA allCars;
     allCars.antal = 90000000;
     allCars.cars = malloc(allCars.antal*sizeof( CAR ));
-    char regno[7];
+    //char regno[7];
     for(int i = 0; i < allCars.antal ; i++){
-        genRegNo(regno);
-        strcpy(allCars.cars[i].regno,regno);
+        genRegNo(allCars.cars[i].regno);
+        //genRegNo(regno);
+        //strcpy(allCars.cars[i].regno,regno);
         allCars.cars[i].year = genYear();
     }
     char *the1000 = allCars.cars[1000].regno;

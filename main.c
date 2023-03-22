@@ -62,6 +62,8 @@ int calcStartingWithA(CAR_DATA *data){
     for(int i = 0; i < data->antal; i++){
         if(data->cars[i].regno[0] == 'A')
             antal++;
+        else if(data->cars[i].regno[0] == 'B')
+            break;
     }
     return antal;
 }
@@ -79,6 +81,10 @@ int main(){
         //strcpy(allCars.cars[i].regno,regno);
         allCars.cars[i].year = genYear();
     }
+    qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);
+
+
+
     char *the1000 = allCars.cars[1000].regno;
 
     clock_t start, end;
@@ -109,7 +115,6 @@ int main(){
 
 
 
-//    qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);
 
     // clock_t start, end;
     // double cpu_time_used;

@@ -56,6 +56,16 @@ CAR *findCar(CAR_DATA *carData, const char *regno ){
     }
     return result;
 }
+
+int calcStartingWithA(CAR_DATA *data){
+    int antal = 0;
+    for(int i = 0; i < data->antal; i++){
+        if(data->cars[i].regno[0] == 'A')
+            antal++;
+    }
+    return antal;
+}
+
 int main(){
     srand(time(NULL));
 
@@ -95,6 +105,7 @@ int main(){
     if(car != NULL){
         printf("Hittade bilden från %d\n", car->year);
     }
+    
 
 
 

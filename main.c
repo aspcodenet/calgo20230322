@@ -68,6 +68,22 @@ int calcStartingWithA(CAR_DATA *data){
     return antal;
 }
 
+CAR *binarySearch(CAR_DATA *data, const char *regno){
+    int min = 0;
+    int max = data->antal-1;
+    int loop = 0;
+    while(min <= max){
+        loop++;
+        int mid = min + (max - min) / 2;
+        printf("Testing at %d loop no:%d\n",mid,loop);
+        int res = strcmp(regno, data->cars[mid].regno);
+        if(res == 0) return &data->cars[mid];
+        if(res > 0) min = mid +1;
+        else max = mid -1;
+    }
+    return NULL;
+}
+
 int main(){
     srand(time(NULL));
 
@@ -83,9 +99,12 @@ int main(){
     }
     qsort(allCars.cars,allCars.antal,sizeof(CAR),compare);
 
+    char *the1000 = allCars.cars[73000001].regno;
 
 
-    char *the1000 = allCars.cars[1000].regno;
+    CAR *p = binarySearch(&allCars,the1000);
+    printf(p->regno);
+
 
     clock_t start, end;
     double cpu_time_used;
